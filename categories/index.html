@@ -1,43 +1,44 @@
-const { Component } = require('inferno');
-const classname = require('hexo-component-inferno/lib/util/classname');
-const Head = require('./common/head');
-const Navbar = require('./common/navbar');
-const Widgets = require('./common/widgets');
-const Footer = require('./common/footer');
-const Scripts = require('./common/scripts');
-const Search = require('./common/search');
-
-module.exports = class extends Component {
-    render() {
-        const { site, config, page, helper, body } = this.props;
-
-        const language = page.lang || page.language || config.language;
-        const columnCount = Widgets.getColumnCount(config.widgets);
-
-        return <html lang={language ? language.substr(0, 2) : ''}>
-            <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-${columnCount}-column`}>
-                <Navbar config={config} helper={helper} page={page} />
-                <section class="section">
-                    <div class="container">
-                        <div class="columns">
-                            <div class={classname({
-                                column: true,
-                                'order-2': true,
-                                'column-main': true,
-                                'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-8-widescreen': columnCount === 2,
-                                'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
-                            })} dangerouslySetInnerHTML={{ __html: body }}></div>
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
-                        </div>
-                    </div>
-                </section>
-                <Footer config={config} helper={helper} />
-                <Scripts site={site} config={config} helper={helper} page={page} />
-                <Search config={config} helper={helper} />
-            </body>
-        </html>;
-    }
-};
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>分类 - 篱落闲栈</title><meta name="keywords" content="篱落,篱落闲栈,hexo,Wittoy"><meta name="description" content="篱落闲栈（Wittoy&amp;#39;s Blog），包括且不限于Linux，Web方面的折腾记录。"><meta property="og:type" content="blog"><meta property="og:title" content="篱落闲栈"><meta property="og:url" content="https://blog.wittoy.com/"><meta property="og:site_name" content="篱落闲栈"><meta property="og:description" content="篱落闲栈（Wittoy&amp;#39;s Blog），包括且不限于Linux，Web方面的折腾记录。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/1rz/static/images/me.jpg"><meta property="article:author" content="Yavin"><meta property="article:tag" content="篱落"><meta property="article:tag" content="篱落闲栈"><meta property="article:tag" content="hexo"><meta property="article:tag" content="Wittoy"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/1rz/static/images/me.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.wittoy.com"},"headline":"篱落闲栈","image":["https://cdn.jsdelivr.net/gh/1rz/static/images/me.jpg"],"author":{"@type":"Person","name":"Yavin"},"description":"篱落闲栈（Wittoy&#39;s Blog），包括且不限于Linux，Web方面的折腾记录。"}</script><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans"><link rel="stylesheet" href="https://at.alicdn.com/t/font_1664716_3hnf23faqmy.css"><link rel="stylesheet" href="https://lib.baomitu.com/highlight.js/9.12.0/styles/mono-blue.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/css/default.css"><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?31bf7ee8b1d6d637e2080c730d441083";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><link rel="stylesheet" href="https://lib.baomitu.com/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-137043045-2" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-137043045-2');</script><!--!--><script src="https://lib.baomitu.com/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="篱落闲栈" type="application/atom+xml">
+</head><body class="is-3-column"><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/night.js"></script><canvas id="universe"></canvas><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://cdn.jsdelivr.net/gh/1rz/static/hexo/images/cover.png" alt="篱落闲栈" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives/">Archives</a><a class="navbar-item" href="/friends/">Friends</a><a class="navbar-item" href="/about/">About</a><a class="navbar-item" href="/talk/">Talk</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;" rel="external nofollow noreferrer"><i class="iconfont icon-moon" id="night-icon"></i></a><a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer"><i class="iconfont icon-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://cdn.jsdelivr.net/gh/1rz/static/images/me.jpg" alt="Yavin"></figure><p class="title is-size-4 is-block line-height-inherit">Yavin</p><p class="is-size-6 is-block">Every single moment is another chance to begin.</p><p class="is-size-6 is-flex justify-content-center"><i class="iconfont icon-iclocationonpx"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://wittoy.com" target="_blank" rel="noopener"><i class="iconfont icon-follow"> </i>Index</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="Github" href="https://github.com/Wittoy"><i class="iconfont icon-git"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="Steam" href="http://steamcommunity.com/id/cnmzz"><i class="iconfont icon-steam"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="NetEase" href="https://music.163.com/#/user/home?id=376260963"><i class="iconfont icon-neteaseMusic"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener external nofollow noreferrer" title="Telegram" href="https://t.me/AS4816"><i class="iconfont icon-telegram"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://www.lasystools.com" target="_blank" rel="noopener external nofollow noreferrer"><span class="level-left"><span class="level-item">Lasystools</span></span><span class="level-right"><span class="level-item tag">www.lasystools.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.senventise.com" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Senventise</span></span><span class="level-right"><span class="level-item tag">www.senventise.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://changingworld.gitee.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">CWorld</span></span><span class="level-right"><span class="level-item tag">changingworld.gitee.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.ronnie.top" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Ronnie</span></span><span class="level-right"><span class="level-item tag">www.ronnie.top</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.aicsuk.com" target="_blank" rel="noopener external nofollow noreferrer"><span class="level-left"><span class="level-item">Aicsuk</span></span><span class="level-right"><span class="level-item tag">www.aicsuk.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.Azusemisa.top" target="_blank" rel="noopener external nofollow noreferrer"><span class="level-left"><span class="level-item">AzuSemisa</span></span><span class="level-right"><span class="level-item tag">www.azusemisa.top</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.iyanxi.com" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">颜兮之家</span></span><span class="level-right"><span class="level-item tag">www.iyanxi.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2021-01-24T09:36:43.018Z">2021-01-24</time></p><p class="title is-6"><a class="link-muted" href="/archives/hello-world/">Hello World</a></p><p class="is-uppercase"></p></div></article></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://cdn.jsdelivr.net/gh/1rz/static/hexo/images/cover.png" alt="篱落闲栈" height="28"></a><p class="size-small"><span>&copy;&nbsp;2018&nbsp;-&nbsp;2021</span> <i class="iconfont icon-Love"> </i>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener external nofollow noreferrer">Icarus</a><script>var now = new Date();
+        function createtime() {
+            var grt= new Date("10/13/2018 09:38:00");
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站共续命了 "+dnum+"  天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";}
+        setInterval("createtime()",250);</script><div class="size-small"><span id="timeDate"></span><span id="times"></span></div><div class="size-small"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">鲁ICP备20025514号</a></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="iconfont icon-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener external nofollow noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="iconfont icon-attribution"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="iconfont icon-rss"></i></a></p></div></div></div></div></footer><script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><script src="https://lib.baomitu.com/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/column.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer"><i class="iconfont icon-Chevronupdouble-px"></i></a><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://lib.baomitu.com/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://lib.baomitu.com/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/main.js" defer></script><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/title.js"></script><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/universe.js"></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;" rel="external nofollow noreferrer">×</a></div><div class="searchbox-body"></div></div></div><script src="https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"https://cdn.jsdelivr.net/gh/1rz/static@master/hexo/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
